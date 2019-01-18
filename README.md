@@ -1,6 +1,7 @@
 # Phaser 3 Webpack Project Template
 
-A Phaser 3 Project Template
+A Phaser 3 Project Template based on @photonstorm 's ( https://github.com/photonstorm/phaser3-project-template ) with Webpack.
+
 
 ### Requirements
 
@@ -14,4 +15,7 @@ Run next commands in your terminal:
 |---------|-------------|
 | `npm install` | Install dependencies and launch browser with examples.|
 | `npm start` | Launch browser to show the examples. <br> Press `Ctrl + c` to kill **http-server** process. |
-=======
+
+
+Thanks to @murilocruz for the help building the webpack
+
