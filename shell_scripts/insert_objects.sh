@@ -44,14 +44,12 @@ function Load(){
 	echo ""
 }
 
-# function Help(){
-#     echo "/path/to/insert_objects [command] [game (bool)] [sufix (optional)]  [path to import (necessary if command is import)]"
-# 	echo "where"
-# 	echo "command = load/import/add"
-# 	echo "sufix is whatever sufix file you want to filter, e.g. svg, png, ogg etc"
-# 	echo "game is a bool parameter to decide if its this.load/add.image(...) or  this.GAME.load/add.image(...)"
-# 	echo "path is, e.g import file from /PATH/file.svg;"
-# 	echo " 2018© - Created by Laura Viglioni"
-# }
+function Help(){
+    echo ./insert_objects [path] [word. (optional)] [sufix (optional)]
+    echo [path] is the relative path from the file.js to the assets folder you are executing this script
+    echo [word. ] is a optional word to use in load and add funcions, e.g. instead of \'this.load.image\(...\' the script will return \'this.word.load.image\(...\'
+    echo [sufix] instead of run the script for all files in this folder, use it only to files ending with the sufix chosen
+	echo " 2018© - Created by Laura Viglioni"
+}
 
 Main
