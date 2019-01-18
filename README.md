@@ -2,6 +2,8 @@
 
 A Phaser 3 Project Template based on [@photonstorm 's]( https://github.com/photonstorm/phaser3-project-template ) with Webpack.
 
+![Screenshot](https://github.com/Viglioni/Phaser3-Boilerplate/blob/master/assets/screenshot.png)
+
 
 ### Requirements
 
@@ -16,6 +18,7 @@ Run next commands in your terminal:
 | `npm install` | Install dependencies and launch browser with examples.|
 | `npm start` | Launch browser to show the examples. <br> Press `Ctrl + c` to kill **http-server** process. |
 
+## Settings 
 Default port is 8000, to change it see package.json
 ``` json
 "start": "npm run build && webpack-dev-server --port=8000" 
@@ -36,8 +39,7 @@ Default port is 8000, to change it see package.json
 | Assets | ./assets | Media files |
 | Build | ./build | webpack automatically builds the project here, except index.html |
 
-
-
+## Acknowledgements
 
 Thanks to @murilocruz for the help building the webpack
 
