@@ -12,7 +12,7 @@ function Main(){
 }
 
 function Path(){
-    if [ $path != "" ]; then
+    if [ $# -gt 1 ]; then
 	    echo ""
 	    for x in *$sufix; do
 		y=${x%.*};
@@ -45,7 +45,7 @@ function Load(){
 }
 
 function Help(){
-    echo ./insert_objects [path] [word. (optional)] [sufix (optional)]
+    echo ./insert_objects [path] [word. \(optional\)] [sufix \(optional\)]
     echo [path] is the relative path from the file.js to the assets folder you are executing this script
     echo [word. ] is a optional word to use in load and add funcions, e.g. instead of \'this.load.image\(...\' the script will return \'this.word.load.image\(...\'
     echo [sufix] instead of run the script for all files in this folder, use it only to files ending with the sufix chosen
