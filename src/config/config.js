@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Constants from './constants';
-import SceneTemplate from '../scenes/scene-template.js';
+import Opening from '../scenes/opening.js';
 
 const constants = new Constants();
 constants.resize();
@@ -14,7 +14,7 @@ const  config = {
     width: width,
     height: height,
     //scene: actual,
-    scene: [SceneTemplate],
+    scene: [Opening],
     physics: { 
         default: 'arcade',
         arcade: {
