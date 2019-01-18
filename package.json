@@ -9,9 +9,9 @@
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
+      "url": "git+https://github.com/Viglioni/Phaser3-Boilerplate"
    },
-   "author": "Richard Davey <rdavey@gmail.com> (http://www.photonstorm.com)",
+   "author": "Laura Viglioni (http://laura.viglioni.com)",
    "license": "MIT",
    "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
    "bugs": {
