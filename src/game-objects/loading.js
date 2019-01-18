@@ -1,4 +1,4 @@
-import Constants from '../../config/constants';
+import Constants from '../config/constants';
 
 const constants = new Constants();
 constants.resize();
@@ -50,5 +50,6 @@ export default function loading_page(game) {
         progressBar.destroy();
         progressBox.destroy();
         loadingText.destroy();
+        percentText.destroy();
     });
 }

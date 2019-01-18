@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import Constants from '../config/constants';
 import logo from "../../assets/logo.png";
 import star from "../../assets/star.png";
-import loading_page from "../game-objects/loading.js";
+import loading_page from "../game-objects/loading";
 
 
 const constants = new Constants();
