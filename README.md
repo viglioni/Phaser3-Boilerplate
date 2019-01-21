@@ -1,6 +1,7 @@
-# Phaser 3 Webpack Project Template
+# Minimalist Phaser 3 Webpack Project Template
 
 A Phaser 3 Project Template based on [@photonstorm 's]( https://github.com/photonstorm/phaser3-project-template ) with Webpack.
+If you are looking into a more spartan webpack boilerplate, you should checkout [@simiancraft's](https://github.com/simiancraft/create-phaser-app) ☺
 
 ![Screenshot](https://github.com/Viglioni/Phaser3-Boilerplate/blob/master/assets/screenshot.png)
 
