@@ -38,7 +38,7 @@ export default class Opening extends Phaser.Scene {
         
     }
     update() {
-        let star = this.add.image(Math.random() *1000%width, Math.random() * 1000%height, 'star').setScale(assetScale);
+        let star = this.add.image(Math.random() *1000%width, Math.random() * 1000%height, 'star').setScale(assetScale*(Math.random()*10%5+5)/10);
         this.time.delayedCall(Math.random()*10000%10000 ,() => star.destroy());
     }
     render() {}
