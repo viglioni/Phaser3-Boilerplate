@@ -32,7 +32,6 @@ export default function loading_page(game) {
     });
 
     progressBox.fillStyle(0x222222, 0.8);
-    console.log(center.width, width);
     progressBox.fillRect(center.width -300*assetScale, center.height -50*assetScale, 600*assetScale, 100*assetScale);
     percentText.setOrigin(0.5, 0.5);
     loadingText.setOrigin(0.5, 0.5);
@@ -46,7 +45,6 @@ export default function loading_page(game) {
     });
     
     game.load.on('complete', function () {
-        console.log('complete');
         progressBar.destroy();
         progressBox.destroy();
         loadingText.destroy();
