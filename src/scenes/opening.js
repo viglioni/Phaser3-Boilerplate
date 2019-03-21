@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
-import logo from "../../assets/logo.png";
-import star from "../../assets/star.png";
+import * as Assets from "../../assets/";
+
 import loading_page from "../game-objects/loading";
 
 
@@ -21,8 +21,7 @@ export default class Opening extends Phaser.Scene {
 
     preload() {
         loading_page(this.sys);
-        this.load.image('logo', logo);
-        this.load.image('star', star);
+        Object.keys(Assets).map( name => this.load.image(name, Assets[name]));
     }
     create() {
         var phaser_logo = this.add.image(center.width-(382/2)*assetScale,0, 'logo').setOrigin(0).setScale(assetScale);
