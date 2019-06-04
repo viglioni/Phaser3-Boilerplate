@@ -1,9 +1,7 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
 import * as Assets from "../../assets/";
-import utils from '../utils';
-import loading_page from "../game-objects/loading";
-
+import Utils from '../utils/utils';
 
 const constants = new Constants();
 constants.resize();
@@ -17,10 +15,12 @@ const center = {
 export default class Opening extends Phaser.Scene {
     constructor() {
         super({ key: 'opening' });
+        this.utils = new Utils(this.sys);
     }
 
     preload() {
-        loading_page(this.sys);
+        this.utils.loading();
+//        loading_page(this.sys);
         Object.keys(Assets).map( name => this.load.image(name, Assets[name]));
     }
     create() {
@@ -37,8 +37,14 @@ export default class Opening extends Phaser.Scene {
         
     }
     update() {
-        let star = this.add.image(Math.random() *1000%width, Math.random() * 1000%height, 'star').setScale(assetScale*(Math.random()*10%5+5)/10);
-        this.time.delayedCall(Math.random()*10000%10000 ,() => star.destroy());
+        let star = this.add.image(
+            this.utils.randInt(0,width),
+            this.utils.randInt(0,height),
+            'star'
+        ).setScale( this.utils.rand(0.5*assetScale,assetScale));
+
+        this.utils.wait(this.utils.randInt(100,10000) , () => star.destroy()  );
+
     }
     render() {}
 }
