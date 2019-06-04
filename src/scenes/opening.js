@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
 import * as Assets from "../../assets/";
-
+import utils from '../utils';
 import loading_page from "../game-objects/loading";
 
 

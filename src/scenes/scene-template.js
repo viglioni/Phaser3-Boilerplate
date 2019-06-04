@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
 import loading_page from "../game-objects/loading.js";
-
+import utils from '../utils';
 
 const constants = new Constants();
 constants.resize();
