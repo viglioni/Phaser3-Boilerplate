@@ -3,6 +3,7 @@ import random from './random';
 import wait from './wait';
 import object from './object';
 import loadingPage from './loading';
+import img from './image';
 
 const constants = new Constants();
 constants.resize();
@@ -31,4 +32,8 @@ export default class Utils {
 
     // from loading_page.js
     loading() { loadingPage(this.game); }
+
+    // from image.js
+    addfull(asset, attr){ return img.addfull(asset, attr || {},  assetScale, this.game); }
+    add(asset, x , y, attr) { return img.add(asset, x,y, attr || {}, assetScale, this.game); }
 }

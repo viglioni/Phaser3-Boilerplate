@@ -20,12 +20,13 @@ export default class Opening extends Phaser.Scene {
 
     preload() {
         this.utils.loading();
-//        loading_page(this.sys);
         Object.keys(Assets).map( name => this.load.image(name, Assets[name]));
     }
     create() {
-        var phaser_logo = this.add.image(center.width-(382/2)*assetScale,0, 'logo').setOrigin(0).setScale(assetScale);
-        phaser_logo.depth = 2;
+        let phaser_logo = this.utils.add('logo', 409, 0,
+                                         {z:10, callback: ()=>{console.log('hehe');}});
+        // var phaser_logo = this.add.image(center.width-(382/2)*assetScale,0, 'logo')
+        //     .setOrigin(0).setScale(assetScale);
         this.tweens.add({
             targets: phaser_logo,
             y: height/2,
@@ -41,7 +42,7 @@ export default class Opening extends Phaser.Scene {
             this.utils.randInt(0,width),
             this.utils.randInt(0,height),
             'star'
-        ).setScale( this.utils.rand(0.5*assetScale,assetScale));
+        ).setScale( this.utils.rand(0.5*assetScale,assetScale)).setDepth(3);
 
         this.utils.wait(this.utils.randInt(100,10000) , () => star.destroy()  );
 
