@@ -3,7 +3,7 @@ import Constants from '../config/constants';
 import * as Assets from "../../assets/";
 import Utils from '../utils/utils';
 
-const constants = new Constants();
+var constants = new Constants();
 constants.resize();
 const {width, height, assetScale} = constants.getValues();
 const center = {
@@ -23,10 +23,9 @@ export default class Opening extends Phaser.Scene {
         Object.keys(Assets).map( name => this.load.image(name, Assets[name]));
     }
     create() {
+        console.log(this);
         let phaser_logo = this.utils.addpic(
-            'logo',
-            409,
-            0,
+            'logo', 409, 0,
             {
                 z:10,
                 callback: ()=>this.utils.show(phaser_logo,300, this.utils.rand(0.2,1))
@@ -40,8 +39,8 @@ export default class Opening extends Phaser.Scene {
             yoyo: true,
             loop: -1
         });
-        
     }
+
     update() {
         let star = this.utils.addpic(
             'star',
@@ -53,5 +52,4 @@ export default class Opening extends Phaser.Scene {
         this.utils.wait(this.utils.randInt(100,10000) , () => star.destroy()  );
 
     }
-
 }

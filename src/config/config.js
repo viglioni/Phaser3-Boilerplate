@@ -10,7 +10,7 @@ const actual = [];
 
 const  config = {
     type: Phaser.AUTO,
-    parent: 'phaser-example',
+    parent: 'game',
     width: width,
     height: height,
     //scene: actual,

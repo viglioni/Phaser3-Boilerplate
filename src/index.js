@@ -4,4 +4,3 @@ import config from './config/config';
 
 var game = new Phaser.Game(config);
 
-
