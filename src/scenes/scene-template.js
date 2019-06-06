@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
-import loading_page from "../game-objects/loading.js";
-import utils from '../utils';
+import Utils from '../utils/utils';
 
 const constants = new Constants();
 constants.resize();
@@ -15,14 +14,13 @@ const center = {
 export default class sceneTemplate extends Phaser.Scene {
     constructor() {
         super({ key: 'template' });
+        this.utils = new Utils(this.sys);
     }
 
     preload() {
-        loading_page(this.sys);
+        this.utils.loading();
     }
-    create() {
-    }
-    update() {
-    }
-    render() {}
+    create() {}
+    update() {}
+
 }
