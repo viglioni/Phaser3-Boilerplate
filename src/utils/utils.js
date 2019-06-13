@@ -1,7 +1,7 @@
 import Constants from '../config/constants';
 import random from './random';
 import wait from './wait';
-import object from './object';
+import compare from './compare';
 import loadingPage from './loading';
 import img from './image';
 import tweens from './tweens';
@@ -16,10 +16,16 @@ const center = {
 
 
 export default class Utils {
-    constructor(game){
+    constructor(game, duration){
         this.game = game;
+        this.duration = duration || 300;
     }
 
+    getDuration() { return this.duration ;}
+
+    // from constants.js
+    getGameSize() { return constants.getValues(); }
+    
     // from random.js
     prob(desirable){ return random.prob(desirable); }
     randInt(from,to,diff) { return random.randInt(from,to,diff); }
@@ -28,17 +34,21 @@ export default class Utils {
     // from wait.js
     wait(time, callback) { wait.wait(time,callback, this.game); }
 
-    // from objects.js
-    compareObjs(obj1, obj2) { return object.compareObjs(obj1,obj2); }
-
+    // from compare.js
+    compareObjs(obj1, obj2) { return compare.objs(obj1,obj2); }
+    compareArrays(arr1, arr2, sort_before=false) {return compare.arrays(arr1,arr2,sort_before);}
     // from loading_page.js
     loading() { loadingPage(this.game); }
 
     // from image.js
-    addfullpic(asset, attr){ return img.add(asset,0,0, attr || {},  assetScale, this.game); }
-    addpic(asset, x , y, attr) { return img.add(asset, x,y, attr || {}, assetScale, this.game); }
+    addPic(asset, x , y, attr, physics=false) { return img.add(asset, x,y, {...attr}, assetScale, this.game,physics); }
+    addFullPic(asset, attr){ return this.addPic(asset,0,0,attr); }
+    addHiddenPic(asset,x,y,{alpha=0, ...attr}={}) { return this.addPic(asset, x,y, {alpha, ...attr});}
+    addHiddenFull(asset,attr) { return this.addHiddenPic(asset,0,0,attr); }
+    addPhysical(asset,x,y,attr) { return this.addPic(asset,x,y,attr,true);}
 
+    
     // from tweens.js
-    show(target, duration, alpha) { return tweens.changeAlpha(target, duration || 300, alpha || 1, this.game); }
-    hide(target, duration) { return tweens.changeAlpha(target, duration || 300, 0, this.game); }
+    show(target, duration=this.duration, alpha=1) { return tweens.changeAlpha([target].flat(100), duration, alpha, this.game); }
+    hide(target, duration=this.duration) { return tweens.changeAlpha([target].flat(100), duration, 0, this.game); }
 }

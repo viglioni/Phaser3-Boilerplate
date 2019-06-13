@@ -3,14 +3,6 @@ import Constants from '../config/constants';
 import * as Assets from "../../assets/";
 import Utils from '../utils/utils';
 
-var constants = new Constants();
-constants.resize();
-const {width, height, assetScale} = constants.getValues();
-const center = {
-    width: width/2,
-    height: height/2
-};
-
 
 export default class Opening extends Phaser.Scene {
     constructor() {
@@ -23,14 +15,14 @@ export default class Opening extends Phaser.Scene {
         Object.keys(Assets).map( name => this.load.image(name, Assets[name]));
     }
     create() {
-        console.log(this);
-        let phaser_logo = this.utils.addpic(
+        let phaser_logo = this.utils.addPic(
             'logo', 409, 0,
             {
                 z:10,
-                callback: ()=>this.utils.show(phaser_logo,300, this.utils.rand(0.2,1))
+                callback: ()=>this.utils.show(phaser_logo,300, this.utils.rand(0.4,1))
             }
         );
+        let {height} = this.utils.getGameSize();
         this.tweens.add({
             targets: phaser_logo,
             y: height/2,
@@ -42,7 +34,7 @@ export default class Opening extends Phaser.Scene {
     }
 
     update() {
-        let star = this.utils.addpic(
+        let star = this.utils.addPic(
             'star',
             this.utils.randInt(0,1200),
             this.utils.randInt(0,675),
