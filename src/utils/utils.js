@@ -7,19 +7,35 @@ import img from './image';
 import tweens from './tweens';
 import loadAssets from './load-assets'
 
-const utils = game =>{
+const utils = (game, duration = 300) =>{
 
     const {width, heght, scale} = constants()
 
     const {addPic} = img(game,scale)
+    const {changeAlpha} = tweens(game)
+    const {randInt, rand, prob} = random()
 
     return {
         // loading functions
         loadAssets :  loadAssets(game),
         loadingPage : loadingPage(game),
+        
         // img functions
         addPic,
 
+        // tween functions
+        changeAlpha,
+
+        // random functions
+        randInt,
+        rand,
+        prob,
+
+        // wait
+        wait: wait(game),
+
+        // small helpers
+        destroy: item => ()=> item.destroy(),
     }}
 
 export default utils

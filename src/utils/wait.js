@@ -6,10 +6,9 @@
  * @return (void)
  */
 
-const wait = {
-    wait: (time, callback, game) =>{
-        game.time.delayedCall(time, () => callback());
-    }
-};
+const wait = game => (time, callback) =>
+        game.time.delayedCall(time, () => callback())
+    
 
-export default wait;
+
+export default wait

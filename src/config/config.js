@@ -6,19 +6,18 @@ import sceneTemplate from '../scenes/old_templ'
 
 const {width, height, } = constants()
 
-const actual = [ Opening];
+const scene = [ Opening];
 
 const  config = {
     type: Phaser.AUTO,
     parent: 'game',
     width: width,
     height: height,
-    scene: actual,
-    //scene: [Opening],
+    scene,
     physics: { 
         default: 'arcade',
         arcade: {
-            gravity: { y: 800 },
+            gravity: { y: 0 },
             debug: false
         }
     }

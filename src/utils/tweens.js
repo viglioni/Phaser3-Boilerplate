@@ -1,11 +1,11 @@
-const tweens = {
-    changeAlpha : (target, duration, alpha, game) =>{
-        return game.tweens.add({
+const tweens = (game, defaultDuration) => {
+    const changeAlpha = (target, duration = defaultDuration, alpha=1) =>
+         game.tweens.add({
             targets: target,
             duration: duration,
-            alpha: alpha
-        });
-    },
+             alpha: alpha});
+
+    return {changeAlpha}
 };
 
 export default tweens;
