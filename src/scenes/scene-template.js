@@ -1,18 +1,21 @@
 import Phaser from 'phaser';
 import Constants from '../config/constants';
 import Utils from '../utils/utils';
+import createScene from '../utils/create-scene'
 
 
-export default class sceneTemplate extends Phaser.Scene {
-    constructor() {
-        super({ key: 'template' });
-        this.utils = new Utils(this.sys);
-    }
+const sceneTemplate = () =>{
 
-    preload() {
-        this.utils.loading();
-    }
-    create() {}
-    update() {}
+    const sceneKey = "scene-key"
 
+    const preload = () => {}
+
+    const create = () => {}
+
+    const update = () => {}
+
+    return () => createScene(sceneKey, preload, create, update)
+    
 }
+
+export default sceneTemplate

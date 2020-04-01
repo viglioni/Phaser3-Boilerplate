@@ -1,8 +1,9 @@
-const img = {
-    add : (img,x,y, attr, assetScale, game, physics) => {
-        let z = attr.z || 1;
-        let scale = attr.scale ? attr.scale*assetScale : assetScale;
-        let asset = physics
+const  img = (game, assetScale) => {
+
+    const add =  (img,x,y, attr, assetScale, physics) => {
+        const z = attr.z || 1;
+        const scale = attr.scale ? attr.scale*assetScale : assetScale;
+        const asset = physics
             ? game.scene.physics.add.image(x*assetScale, y*assetScale,img)
             : game.add.image(x*assetScale, y*assetScale,img);
         asset.setDepth(z).setOrigin(0);
@@ -14,7 +15,12 @@ const img = {
         asset.displayWidth *= scale;
         asset.displayHeight *= scale;
         return asset;
-    },
+    }
+
+    const addPic = (asset, x , y, attr, physics=false) =>
+          add(asset, x,y, {...attr}, assetScale, game,physics);
+
+    return {add, addPic}
     
 };
 
