@@ -4,12 +4,12 @@ import utils from '../utils/utils';
 import createScene from '../utils/create-scene'
 import * as Assets from "../../assets/";
 
-const sceneTemplate = () =>{
+const Example = () =>{
 
     const sceneKey = "opening"
     const Scene =  createScene(sceneKey)
     const { game} = Scene
-    const {loadAssets, loadingPage, addPic, changeAlpha, rand, randInt, wait, destroy} = utils(game)
+    const {loadAssets, loadingPage, addPic, changeAlpha, rand, randInt, wait, destroy, addTween} = utils(game)
 
     const preload = () => {
         loadingPage()
@@ -23,7 +23,7 @@ const sceneTemplate = () =>{
         })
 
         const {height} = constants()
-        game.tweens.add({
+        addTween({
             targets: phaserLogo,
             y: height/2,
             duration: 2000,
@@ -45,4 +45,4 @@ const sceneTemplate = () =>{
     return Scene
 }
 
-export default sceneTemplate
+export default Example

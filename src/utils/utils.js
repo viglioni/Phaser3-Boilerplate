@@ -12,7 +12,7 @@ const utils = (game, duration = 300) =>{
     const {width, heght, scale} = constants()
 
     const {addPic} = img(game,scale)
-    const {changeAlpha} = tweens(game)
+    const {changeAlpha, addTween} = tweens(game)
     const {randInt, rand, prob} = random()
 
     return {
@@ -25,6 +25,7 @@ const utils = (game, duration = 300) =>{
 
         // tween functions
         changeAlpha,
+        addTween,
 
         // random functions
         randInt,

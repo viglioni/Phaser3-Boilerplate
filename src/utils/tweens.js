@@ -1,11 +1,17 @@
 const tweens = (game, defaultDuration) => {
+
+    const addGenericTween = (config) => game.tweens.add(config)
+
+    
     const changeAlpha = (target, duration = defaultDuration, alpha=1) =>
-         game.tweens.add({
+         addGenericTween({
             targets: target,
             duration: duration,
              alpha: alpha});
 
-    return {changeAlpha}
+    
+
+    return {changeAlpha, addTween: addGenericTween}
 };
 
 export default tweens;
