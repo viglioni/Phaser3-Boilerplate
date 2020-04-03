@@ -6,12 +6,14 @@ import loadingPage from './loading';
 import img from './image';
 import tweens from './tweens';
 import loadAssets from './load-assets'
+import text from './text'
 
 const utils = (game, duration = 300) =>{
 
     const {width, heght, scale} = constants()
 
     const {addPic} = img(game,scale)
+    const {createText, changeText} = text(game,scale)
     const {changeAlpha, addTween} = tweens(game)
     const {randInt, rand, prob} = random()
 
@@ -22,6 +24,10 @@ const utils = (game, duration = 300) =>{
         
         // img functions
         addPic,
+
+        // text functions
+        createText,
+        changeText,
 
         // tween functions
         changeAlpha,

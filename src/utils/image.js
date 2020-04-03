@@ -7,7 +7,7 @@ const  img = (game, assetScale) => {
             ? game.scene.physics.add.image(x*assetScale, y*assetScale,img)
             : game.add.image(x*assetScale, y*assetScale,img);
         asset.setDepth(z).setOrigin(0);
-        if(attr.callback)  asset.setInteractive().on('pointerdown', ()=> attr.callback());
+        if(attr.onClick)  asset.setInteractive().on('pointerdown', ()=> attr.onClick());
         if(attr.origin) asset.setOrigin(0.1,0.2);
         if(attr.alpha != undefined) asset.setAlpha(attr.alpha);
         if(attr.angularV) asset.setAngularVelocity(attr.angularV);
