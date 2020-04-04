@@ -14,7 +14,6 @@ const SceneExample = () =>{
 
     const sceneKey = "opening"
     const {Scene, game} =  createScene(sceneKey)
-//    const { game } = Scene
 
     const {loadAssets, loadingPage, addPic, changeAlpha, rand, randInt, wait, destroy, addTween, createText, changeText, setTint} = utils(game)
     

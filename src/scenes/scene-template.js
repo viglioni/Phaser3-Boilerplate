@@ -1,21 +1,23 @@
 import Phaser from 'phaser';
-import Constants from '../config/constants';
-import Utils from '../utils/utils';
 import createScene from '../utils/create-scene'
 
 
-const sceneTemplate = () =>{
 
-    const sceneKey = "scene-key"
+const SceneExample = () =>{
 
+    const sceneKey = "scene-key-example"
+    const {Scene, game} =  createScene(sceneKey)
+
+    
     const preload = () => {}
-
-    const create = () => {}
+    
+    const create =  () => {}
 
     const update = () => {}
 
-    return () => createScene(sceneKey, preload, create, update)
     
+    Scene.setSceneFunctions(preload, create, update)
+    return Scene
 }
 
-export default sceneTemplate
+export default SceneExample

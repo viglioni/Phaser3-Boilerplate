@@ -7,6 +7,7 @@ import img from './image';
 import tweens from './tweens';
 import loadAssets from './load-assets'
 import text from './text'
+import assets from './assets'
 
 const utils = (game, duration = 300) =>{
 
@@ -16,6 +17,7 @@ const utils = (game, duration = 300) =>{
     const {createText, changeText} = text(game,scale)
     const {changeAlpha, addTween} = tweens(game)
     const {randInt, rand, prob} = random()
+    const {setTint, destroy} = assets(game)
 
     return {
         // loading functions
@@ -41,8 +43,12 @@ const utils = (game, duration = 300) =>{
         // wait
         wait: wait(game),
 
-        // small helpers
-        destroy: item => ()=> item.destroy(),
+        // assets
+        destroy,
+        setTint,
+
+        
+        
     }}
 
 export default utils

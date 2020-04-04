@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import {not, and, pathOr} from 'ramda'
-
+import {isFunction} from 'lodash'
 
 const globalStatesExists = () => Boolean(Phaser.globalStates)
 
@@ -20,10 +20,14 @@ const changeLock = (stateName, value) => new Promise((resolve, reject) => {
 const lockState = stateName => changeLock(stateName, true)
 const unlockState = stateName => changeLock(stateName, false)
 const changeValue = (stateName, newValue) =>  new Promise((resolve, reject) => {
-    resolve( Phaser.globalStates[stateName].value = newValue )    
+    const newStateValue = isFunction(newValue)
+          ? newValue(getState(stateName)())
+          : newValue
+    resolve( Phaser.globalStates[stateName].value = newStateValue )    
 })
 
 const getFullState = (stateName) => Phaser.globalStates[stateName]
+const getState = (stateName) => () => getFullState(stateName).value
 
 const changeState = stateName => async ( newValue) => {
     const {lock} =  getFullState(stateName)
@@ -47,9 +51,8 @@ export const useState = (stateName, initialValue=null) => {
     if( not(globalStatesExists())) throw "Global states do not exists!"
     else{
         if(stateNotExists(stateName)) createState(stateName, initialValue)
-        const state = Phaser.globalStates[stateName]
         return [
-            state,
+            getState(stateName),
             changeState(stateName)
         ]
     }}

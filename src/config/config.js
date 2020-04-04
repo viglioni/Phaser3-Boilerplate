@@ -1,12 +1,11 @@
 import Phaser from 'phaser';
 import constants from './constants';
 import Opening from '../scenes/opening.js';
-import sceneTemplate from '../scenes/old_templ'
 
 
 const {width, height, } = constants()
 
-const scene = [ Opening];
+const scene = [ Opening ];
 
 const  config = {
     type: Phaser.AUTO,
