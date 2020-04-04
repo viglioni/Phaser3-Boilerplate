@@ -38,6 +38,7 @@ star color: ${getStarColor()}`, 0, 0, counterStyle, {z: 20})
 
         const phaserLogo = addPic('logo', 409, 0, {
             z: 10,
+            static: true,
             onClick: async ()=> {
                 await setClicks(oldValue => oldValue + 1)
                 await setStarColor( getRndStarColor() )
