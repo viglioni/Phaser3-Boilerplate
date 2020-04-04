@@ -65,7 +65,6 @@ star color: ${getStarColor()}`)
         })
         setTint(star, getStarColor())
         wait( randInt(100, 10000) ,  destroy(star) )
-        console.log(getStarColor())
     }
 
     Scene.setSceneFunctions(preload, create, update)
