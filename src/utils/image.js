@@ -1,7 +1,6 @@
 const  img = (game, assetScale) => {
 
     const add =  (img,x,y, attr, assetScale) => {
-        console.log(attr.static)
         const z = attr.z || 1;
         const scale = attr.scale ? attr.scale*assetScale : assetScale;
         const assetType = attr.static ? 'staticImage' : 'image'
