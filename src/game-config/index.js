@@ -1,11 +1,12 @@
 import Phaser from 'phaser';
-import constants from './constants';
-import Opening from '../scenes/opening.js';
+import constants from 'boilerplate/game-size/constants';
+import Opening from 'scenes/opening.js';
+import GameOver from 'scenes/game-over';
 
 
 const {width, height, } = constants()
 
-const scene = [ Opening ];
+const scene = [ Opening, GameOver ];
 
 const  config = {
     type: Phaser.AUTO,

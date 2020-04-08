@@ -14,6 +14,15 @@ module.exports = {
         filename: 'project.bundle.js'
     },
 
+    resolve: {
+        alias: {
+            boilerplate: path.resolve(__dirname, 'boilerplate/'),
+            scenes: path.resolve(__dirname, 'src/scenes/'),
+            assets: path.resolve(__dirname, 'assets/'),
+            
+        }
+    },
+
     module: {
         rules: [
             { // transpile js using babel

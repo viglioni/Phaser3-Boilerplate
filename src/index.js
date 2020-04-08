@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import 'babel-polyfill';
-import config from './config/config';
-import {createStateManager} from './global-states'
+import config from './game-config';
+import {createStateManager} from 'boilerplate/global-states'
 
 const game = new Phaser.Game(config);
 

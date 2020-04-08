@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import nextScene from './next-scene'
 
 const createScene = (key) => {
      const Scene =  new class extends Phaser.Scene {
@@ -14,7 +15,11 @@ const createScene = (key) => {
          }
      }
 
-    return {Scene, game: Scene.game}
+    return {
+        Scene,
+        game: Scene.game,
+        nextScene: nextScene(Scene.game, key)
+    }
 }
 
 export default createScene

@@ -14,7 +14,7 @@ const random = () =>  {
     const randInt = (from, to, diff=Infinity) => {
 
         const range = to - from;
-        const n = Math.floor(Math.random()*10*range)%range + from + 1;
+        const n = Math.floor(Math.random()*10*range)%range + from;
         if(n === diff) return randInt(from, to, diff)
         else return n
     }

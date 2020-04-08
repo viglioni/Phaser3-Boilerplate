@@ -1,13 +1,11 @@
-import constants from '../config/constants';
+const loadingPage = (game, constants) => () => {
 
-
-const {width, height, assetScale} = constants()
-const center = {
-    width: width/2,
-    height: height/2
-};
-
-const loadingPage = (game) => () => {
+    const {width, height, assetScale} = constants()
+    const center = {
+        width: width/2,
+        height: height/2
+    };
+    
     const progressBar = game.add.graphics();
     const progressBox = game.add.graphics();
     const loadingText = game.make.text({

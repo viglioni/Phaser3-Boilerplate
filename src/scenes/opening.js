@@ -1,30 +1,46 @@
 import Phaser from 'phaser';
-import constants from '../config/constants';
-import utils from '../utils';
-import createScene from '../utils/create-scene'
-import * as Assets from "../../assets/";
-import {useState} from '../global-states'
-import {length, range} from 'ramda'
+import constants from 'boilerplate/game-size/constants';
+import utils from 'boilerplate/utils';
+import sceneManager from 'boilerplate/scene-manager'
+import * as Assets from "assets";
+import {useState} from 'boilerplate/global-states'
+import {length, range, keys} from 'ramda'
 
 
-
+const {createScene} = sceneManager
 
 
 const SceneExample = () =>{
 
+    /*
+     * Create the scene
+     */
     const sceneKey = "opening"
-    const {Scene, game} =  createScene(sceneKey)
+    const {Scene, game, nextScene} =  createScene(sceneKey)
 
+    /*
+     * Get some phaser functions with syntax sugar
+     */
     const {loadAssets, loadingPage, addPic, changeAlpha, rand, randInt, wait, destroy, addTween, createText, changeText, setTint} = utils(game)
+
+    /*
+     * Some aux functions to this scene
+     */
     
-    const starColors= [ "0xff4000", "0xff00ff","0x00fff0","0x004fff","0xffff00"]
+    const starNames=  {"0xff4000" : "red", "0xff00ff" : "pink", "0x00fff0" : "green","0x004fff" : "blue","0xffff00" : "yellow"}
+    const starColors = keys(starNames)
+    const getRndStarColor = () => starColors[ randInt(0, length(starColors))]
 
-    const getRndStarColor = () => starColors[ randInt(0, length(starColors)-1)]
-
+    /*
+     * States
+     */    
 
     const [getClicks, setClicks] = useState('logoClicks', 0)
     const [getStarColor, setStarColor] = useState('starColor', getRndStarColor())
-    
+
+    /*
+     * Phaser default functions: preload, create, update
+     */
     
     const preload = () => {
         loadingPage()
@@ -34,7 +50,7 @@ const SceneExample = () =>{
     const create =  () => {
         const counterStyle = { font: "bold 52px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" }
         const clickCounter = createText(`clicks on logo: ${getClicks()}
-star color: ${getStarColor()}`, 0, 0, counterStyle, {z: 20})
+star color: ${starNames[getStarColor()]}`, 0, 0, counterStyle, {z: 20})
 
         const phaserLogo = addPic('logo', 409, 0, {
             z: 10,
@@ -43,7 +59,7 @@ star color: ${getStarColor()}`, 0, 0, counterStyle, {z: 20})
                 await setClicks(oldValue => oldValue + 1)
                 await setStarColor( getRndStarColor() )
                changeText(clickCounter, `clicks on logo: ${getClicks()}
-star color: ${getStarColor()}`)
+star color: ${starNames[getStarColor()]}`)
             }
         })
 
@@ -66,8 +82,15 @@ star color: ${getStarColor()}`)
         })
         setTint(star, getStarColor())
         wait( randInt(100, 10000) ,  destroy(star) )
+
+        if(getClicks() > 9) nextScene('game-over')
     }
 
+
+    /*
+     * Applying your functions to the scene
+     */
+    
     Scene.setSceneFunctions(preload, create, update)
     return Scene
 }

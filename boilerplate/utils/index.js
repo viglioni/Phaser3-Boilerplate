@@ -1,4 +1,4 @@
-import constants from '../config/constants';
+import constants from 'boilerplate/game-size/constants';
 import random from './random';
 import wait from './wait';
 import compare from './compare';
@@ -22,7 +22,7 @@ const utils = (game, duration = 300) =>{
     return {
         // loading functions
         loadAssets :  loadAssets(game),
-        loadingPage : loadingPage(game),
+        loadingPage : loadingPage(game, constants),
         
         // img functions
         addPic,

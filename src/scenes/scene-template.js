@@ -1,12 +1,12 @@
 import Phaser from 'phaser';
-import createScene from '../utils/create-scene'
+import sceneManager from 'boilerplate/scene-manager'
 
-
+const {createScene} = sceneManager
 
 const SceneExample = () =>{
 
     const sceneKey = "scene-key-example"
-    const {Scene, game} =  createScene(sceneKey)
+    const {Scene, game, nextScene} =  createScene(sceneKey)
 
     
     const preload = () => {}
