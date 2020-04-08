@@ -3,7 +3,10 @@
 A Phaser 3 Project Template based on [@photonstorm 's]( https://github.com/photonstorm/phaser3-project-template ) with Webpack.
 If you are looking into a more spartan webpack boilerplate, you should checkout [@simiancraft's](https://github.com/simiancraft/create-phaser-app) ☺
 
-The main goal of this Boilerplate is to give a "functional programming abstraction" to Phaser.
+The main goal of this Boilerplate is to give a "functional programming abstraction" to Phaser and be easy for one to star coding a game.
+
+The first version of this boilerplate is Object Oriented it will not be improved anymore, you can check it out [here](https://github.com/Viglioni/Phaser3-Boilerplate/tree/object-oriented)
+
 
 
 ![](https://github.com/Viglioni/Phaser3-Boilerplate/blob/functional-boilerplate/assets/screenshots/screenshot1.png)
