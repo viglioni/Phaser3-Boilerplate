@@ -19,7 +19,7 @@ const changeLock = (stateName, value) => new Promise((resolve, reject) => {
 
 const lockState = stateName => changeLock(stateName, true)
 const unlockState = stateName => changeLock(stateName, false)
-const changeValue = (stateName, newValue) =>  new Promise((resolve, reject) => {
+const changeValue = (stateName, newValue) =>  new Promise((resolve, reject) => { 
     const newStateValue = isFunction(newValue)
           ? newValue(getState(stateName)())
           : newValue

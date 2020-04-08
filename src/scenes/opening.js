@@ -7,9 +7,6 @@ import {useState} from 'boilerplate/global-states'
 import {length, range, keys} from 'ramda'
 
 
-//const {createScene} = sceneManager
-
-
 const SceneExample = () =>{
 
     /*
@@ -38,7 +35,7 @@ const SceneExample = () =>{
     const [getClicks, setClicks] = useState('logoClicks', 0)
     const [getStarColor, setStarColor] = useState('starColor', getRndStarColor())
 
-    /*
+  /*
      * Phaser default functions: preload, create, update
      */
     

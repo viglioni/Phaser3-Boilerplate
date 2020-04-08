@@ -14,7 +14,7 @@ const GameOver = () =>{
     const {height, width} = constants()
 
     const [getClicks] = useState('logoClicks')
-    
+
     const preload = () => {}
     
     const create =  () => {
@@ -25,7 +25,7 @@ const GameOver = () =>{
         const clicksStyle = { font: "bold 30px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" }
 
         createText(`You clicked ${getClicks()} times`, width/2+20, height/2+150, clicksStyle)        
-        
+
     }
 
     const update = () => {}
