@@ -6,15 +6,18 @@ const globalStatesExists = () => Boolean(Phaser.globalStates)
 
 const stateNotExists = (stateName) => not( Boolean(Phaser.globalStates[stateName]))
 
-const createState = (stateName, initialValue) => {
-    Phaser.globalStates[stateName] = {
-        value: initialValue,
-        lock: false
-    }
+const createState = (stateName, initialValue, allowReservedWords) => {
+    if(stateName.substring(0,2) === "__" && not(allowReservedWords))
+        throw "Cant name a state with __*"
+    else
+        Phaser.globalStates[stateName] = {
+            value: initialValue,
+            lock: false
+        }
 }
 
 const changeLock = (stateName, value) => new Promise((resolve, reject) => {
-     resolve(Phaser.globalStates[stateName].lock = value)
+    resolve(Phaser.globalStates[stateName].lock = value)
 })
 
 const lockState = stateName => changeLock(stateName, true)
@@ -47,10 +50,10 @@ export const createStateManager = () => {
 }
 
 
-export const useState = (stateName, initialValue=null) => {
+export const useState = (stateName, initialValue=null, allowReservedWords=false) => {
     if( not(globalStatesExists())) throw "Global states do not exists!"
     else{
-        if(stateNotExists(stateName)) createState(stateName, initialValue)
+        if(stateNotExists(stateName)) createState(stateName, initialValue, allowReservedWords)
         return [
             getState(stateName),
             changeState(stateName)
