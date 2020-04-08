@@ -3,7 +3,15 @@
 A Phaser 3 Project Template based on [@photonstorm 's]( https://github.com/photonstorm/phaser3-project-template ) with Webpack.
 If you are looking into a more spartan webpack boilerplate, you should checkout [@simiancraft's](https://github.com/simiancraft/create-phaser-app) ☺
 
-![Screenshot](https://github.com/Viglioni/Phaser3-Boilerplate/blob/master/assets/screenshot.png)
+The main goal of this Boilerplate is to give a "functional programming abstraction" to Phaser.
+
+
+![](https://github.com/Viglioni/Phaser3-Boilerplate/blob/functional-boilerplate/assets/screenshots/screenshot1.png)
+
+![](https://github.com/Viglioni/Phaser3-Boilerplate/blob/functional-boilerplate/assets/screenshots/screenshot2.png)
+
+![](https://github.com/Viglioni/Phaser3-Boilerplate/blob/functional-boilerplate/assets/screenshots/screenshot3.png)
+
 
 
 ### Requirements
@@ -24,14 +32,69 @@ Default port is 8000, to change it see package.json
 ``` json
 "start": "npm run build && webpack-dev-server --port=8000" 
 ```
+# Using the boilerplate
+
+## Direct access:
+Some important directories have an alias, so you can access it anywhere without caring with relative paths
+You can access any file inside the `boilerplate` directory just with `import component from 'boilerplate/path'`.
+You can do it with `assets` and `scenes`.
+
+## My code
+All of your code should be in `/src` directory and your scenes in `/src/scenes`. To add an scene, you must import it inside `game-config/index.js` file and add it to the scene array inside it.
+
+## Scene Manager
+As stated in the example files, you should import it from boilerplate:
+
+```javascript
+import sceneManager from 'boilerplate/scene-manager'
+const {createScene} = sceneManager
+```
+For each scene you should give it a key (string). This key will be used when you need to start this scene from another:
+```javascript
+/*
+ * Create the scene
+ */
+const sceneKey = "opening"
+const {Scene, game, nextScene} =  createScene(sceneKey)
+
+/*
+ * change scene
+ */
+ nextScene('another-key-scene')
+```
+
+## State manager
+To use a global state - i.e. a state that will be callable inside any scene:
+```javascript
+import {useState} from 'boilerplate/global-state'
+
+const scene = () => {
+  const [getState, setState] = useState("your-state-name-(string)", yourInitialValue)
+```
+If a state already exists you don't need to pass the second argument.
+Both `getState` and `setState` are functions.
+
+## Utils
+To use utils, import it from `boilerplate` and call it using `game`:
+
+```javascript
+import sceneManager from 'boilerplate/scene-manager'
+import utils from 'boilerplate/utils'
+
+const {createScene} = sceneManager
+
+const scene = () => {
+  const {Scene, game, nextScene} =  createScene(sceneKey)
+   const {function1, function2, ...} = utils(game)
+```
+
+Checkout in `boilerplate/utils/index.js` what are the functions already implemented.
 
 | Relevand files | Path | Description |
 | ---------------|------|-------------|
-| Config | ./src/config/config.js | Phaser config file. Set here scenes, physics etc. |
-| Constants | ./src/config/constants.js | Default (max) size is 1200x675. Ratio is 16:9. |
+| Config | ./src/gameiconfig/index.js | Phaser config file. Set here scenes, physics etc. |
 | Index (js) | ./src/index.js | Instantiates Phaser.Game using config file |
-| Opening and SceneTemplate | ./src/scenes/ | Example of a working scene and a empty template |
-| Loading Page | ./src/game-objects/loading.js | Displays progressbar while loading assets |
+| Opening, GameOver and SceneTemplate | ./src/scenes/ | Example of a working game and a empty template |
 | Insert objects | ./shell_scripts/insert_objects.sh | Given all files in a directory, returns imports, load.image and add.image of each item |
 
 
