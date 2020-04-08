@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
-import sceneManager from 'boilerplate/scene-manager'
+import {createScene} from 'boilerplate/scene-manager'
 
-const {createScene} = sceneManager
 
 const SceneExample = () =>{
 

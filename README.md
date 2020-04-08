@@ -49,8 +49,7 @@ All of your code should be in `/src` directory and your scenes in `/src/scenes`.
 As stated in the example files, you should import it from boilerplate:
 
 ```javascript
-import sceneManager from 'boilerplate/scene-manager'
-const {createScene} = sceneManager
+import {createScene} from 'boilerplate/scene-manager'
 ```
 For each scene you should give it a key (string). This key will be used when you need to start this scene from another:
 ```javascript
@@ -81,10 +80,8 @@ Both `getState` and `setState` are functions.
 To use utils, import it from `boilerplate` and call it using `game`:
 
 ```javascript
-import sceneManager from 'boilerplate/scene-manager'
+import {createScene} from 'boilerplate/scene-manager'
 import utils from 'boilerplate/utils'
-
-const {createScene} = sceneManager
 
 const scene = () => {
   const {Scene, game, nextScene} =  createScene(sceneKey)

@@ -1,13 +1,13 @@
 import Phaser from 'phaser';
 import constants from 'boilerplate/game-size/constants';
 import utils from 'boilerplate/utils';
-import sceneManager from 'boilerplate/scene-manager'
+import {createScene} from 'boilerplate/scene-manager'
 import * as Assets from "assets";
 import {useState} from 'boilerplate/global-states'
 import {length, range, keys} from 'ramda'
 
 
-const {createScene} = sceneManager
+//const {createScene} = sceneManager
 
 
 const SceneExample = () =>{

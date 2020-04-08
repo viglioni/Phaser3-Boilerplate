@@ -1,11 +1,9 @@
 import Phaser from 'phaser';
-import sceneManager from 'boilerplate/scene-manager'
+import {createScene} from 'boilerplate/scene-manager'
 import constants from 'boilerplate/game-size/constants'
 import {useState} from 'boilerplate/global-states'
-
 import utils from 'boilerplate/utils'
 
-const {createScene} = sceneManager
 
 const GameOver = () =>{
 
