@@ -75,6 +75,16 @@ const scene = () => {
 ```
 If a state already exists you don't need to pass the second argument.
 Both `getState` and `setState` are functions.
+Notice that state names started with "\_\_" are reserved
+
+## Socket manager
+```javascript
+import {useSocket} from 'boilerplate/socket-manager'
+
+const scene = () => {
+  const {socket, emit} = useSocket(your-server-url)
+```
+Notice that you only have to pass the url paramater on the first call. `useSocket` will save your socket in a global state, so you can call it anywhere after the first call. If your application needs more than one socket you will have to do it manually.
 
 ## Utils
 To use utils, import it from `boilerplate` and call it using `game`:
@@ -85,7 +95,7 @@ import utils from 'boilerplate/utils'
 
 const scene = () => {
   const {Scene, game, nextScene} =  createScene(sceneKey)
-   const {function1, function2, ...} = utils(game)
+  const {function1, function2, ...} = utils(game)
 ```
 
 Checkout in `boilerplate/utils/index.js` what are the functions already implemented.
